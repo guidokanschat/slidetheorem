@@ -1,0 +1,27 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{listings}
+\usepackage[fileprefix=sthm/]{slidetheorem}
+\lstset{language=[LaTeX]TeX}
+\numberwithin{slidetheorem}{section}
+\newslidetheorem{Remark}
+\title{SlideTheorem\\\large Theorem environments for notes and slides}
+\author{Guido Kanschat}
+\begin{document}
+\maketitle
+\section{Introduction}
+
+\begin{Remark}{intro}
+  This class defines theorem environments similar to the package \texttt{amsthm} and others.
+\end{Remark}
+
+\begin{Definition}{def1}
+  Capitalized environments produce a box in the notes and at the same
+  time write into a file. The file contains the number which the 
+\end{Definition}
+
+
+\begin{Theorem*}{theo1}{Named version}
+  
+\end{Theorem*}
+\end{document}
