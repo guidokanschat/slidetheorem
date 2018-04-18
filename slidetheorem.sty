@@ -41,7 +41,7 @@
     \refstepcounter{slidetheorem}%
     \label{#1:##1}
     \immediate\write\sthm@list{\unexpanded{\frame{\input{\slidetheorem@fileprefix#1-##1.tex}}}}
-    \def\CommentCutFile{sthm/#1-##1.tex}
+    \def\CommentCutFile{\slidetheorem@fileprefix#1-##1.tex}
     \SetUpCutFile
     \immediate\write\CommentStream{\unexpanded{\begin{stheorem}{#1}{}}(\theslidetheorem)
       }
@@ -51,7 +51,7 @@
     \label{#1:##1}%
     \index{##2}
     \immediate\write\sthm@list{\unexpanded{\frame{\input{\slidetheorem@fileprefix#1-##1.tex}}}}
-    \def\CommentCutFile{sthm/#1-##1.tex}
+    \def\CommentCutFile{\slidetheorem@fileprefix#1-##1.tex}
     \SetUpCutFile
     \immediate\write\CommentStream{\unexpanded{\begin{stheorem}{#1}{##2}}(\theslidetheorem)
       }
