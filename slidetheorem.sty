@@ -30,6 +30,10 @@
   \immediate\write\CommentStream{\unexpanded{#1}}%
 }
 
+\def\slidetheorem@open#1!{%
+  \immediate\write\sthm@list{\unexpanded{\frame{\input{#1}}}}
+}
+
 \long\def\newslidetheorem#1{%
   \csarg\def{After#1Comment}{%
     \immediate\write\CommentStream{\unexpanded{\end{stheorem}}}%
@@ -40,8 +44,8 @@
   \expandafter\def\csname#1\endcsname##1{\endgroup%
     \refstepcounter{slidetheorem}%
     \label{#1:##1}
-    \immediate\write\sthm@list{\unexpanded{\frame{\input{\slidetheorem@fileprefix#1-##1.tex}}}}
-    \def\CommentCutFile{\slidetheorem@fileprefix#1-##1.tex}
+    \edef\CommentCutFile{\slidetheorem@fileprefix#1-##1.tex}
+    \expandafter\slidetheorem@open\CommentCutFile!
     \SetUpCutFile
     \immediate\write\CommentStream{\unexpanded{\begin{stheorem}{#1}{}}(\theslidetheorem)
       }
@@ -50,8 +54,8 @@
     \refstepcounter{slidetheorem}%
     \label{#1:##1}%
     \index{##2}
-    \immediate\write\sthm@list{\unexpanded{\frame{\input{\slidetheorem@fileprefix#1-##1.tex}}}}
-    \def\CommentCutFile{\slidetheorem@fileprefix#1-##1.tex}
+    \edef\CommentCutFile{\slidetheorem@fileprefix#1-##1.tex}
+    \expandafter\slidetheorem@open\CommentCutFile!
     \SetUpCutFile
     \immediate\write\CommentStream{\unexpanded{\begin{stheorem}{#1}{##2}}(\theslidetheorem)
       }
